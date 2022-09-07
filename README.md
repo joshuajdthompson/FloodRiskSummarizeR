@@ -24,6 +24,8 @@ By default, the map and its legend displays the Parcel Importance Score. This ca
 
 The parcels displayed on the map can also be filtered by the default or updated Parcel Importance Scores using the 'Range of Parcel Scores to Display' slider. This is intended as a quick visual screen, to assist the user with identifying parcels in a desired Parcel Importance Score range. By default the range is set to Parcel Importance Score values between 0 and 1 (the full range).
 
+![alt text](https://github.com/joshuajdthompson/FloodRiskSummarizeR/blob/main/FloodSummarizeRFilterLayers.gif?raw=true)
+
 
 # Selecting and Summarizing Results 
 
