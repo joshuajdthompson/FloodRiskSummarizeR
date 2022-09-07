@@ -17,6 +17,8 @@ Parcel size was calculated using the geometry of the parcel, and natural landcov
 
 **Parcel Importance Score:** The Parcel Importance Score is calculated as the weighted sum of all parameters noted above. By default all parameters are weighted by 0.5 (i.e., parameter value x 0.5). The user can change these weights to aid decision making, and refresh the results with updated weights by clicking the 'Refresh Parcel Score' button. For example, if flood data is not of interest, all flood parameters can be set to 0, which will exclude these parameters from the Parcel Importance Score. Likewise, if flood data is of interest, all flood parameters can be set to 1, which will give these parameters the highest weight when calculating the Parcel Importance Score.
 
+![alt text](https://github.com/joshuajdthompson/FloodRiskSummarizeR/blob/main/FFloodSummarizeRFilterLayers.gif?raw=true)
+
 
 # Filtering Map Display 
 
