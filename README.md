@@ -35,4 +35,6 @@ The user can select and summarize the results by clicking on each parcel. This w
 
 The tabular summary in the Selection Summary tab includes the Tax Account Number, the Parcel Importance Score, Parcel Area, City, Last Sale Price, Last Sale Date, Assessed Value (both land and any improvements), the delta between the Sale Price and Assessed Value, whether the parcel intersects with a Stream, whether the Parcel is within 100-ft of a stream, and the % of Environmental Encumbrances, defined as the non-overlapping sum of Streams, Wetlands, and Steep Slopes areas, and their 100-ft buffers. 
 
+![alt text](https://github.com/joshuajdthompson/FloodRiskSummarizeR/blob/main/FloodSummarizeRSelectSummary.gif?raw=true)
+
 Above the summary table is the 'Download Full Table' button which will download an expanded summary table in a .xlsx format. In addition to the parameters explained above and the parameters included in the Parcel Importance Score, the expanded table also includes information such as the owner, address, percentage of natural landcover using data from both Anne Arundel County and the Chesapeake Bay Conservancy, the mean slope within the parcel, and the mean flood depth for all scenarios using First Street Foundation's data.
