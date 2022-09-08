@@ -182,8 +182,10 @@ ui = fluidPage(id = 'fP',
               input[type=number] {-moz-appearance:textfield;}
               input[type=number]::{-moz-appearance:textfield;}
               input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button {-webkit-appearance: none;
-                    margin: 0;
-              }
+                    margin: 0;}
+              .checkbox {line-height: 30px; margin-bottom: 40px;}
+              input[type='checkbox']{width: 30px;height: 30px; line-height: 30px;}
+              span {margin-left: 15px;line-height: 30px;}
               "
                          ))),
                titlePanel(
@@ -240,7 +242,7 @@ ui = fluidPage(id = 'fP',
                                                                      width = "50%"),
                                                       br(), 
                                                       column(8,h4(strong("Weights for Parameters"),style="font-size:26px;font-style:normal; font-weight: 400; color: black",
-                                                         actionButton("info", "?",class="smallbutt"))),column(4,actionButton("calc", "Refresh Parcel Score",class="butt")),br(),br()
+                                                                  actionButton("info", "?",class="smallbutt"))),column(4,actionButton("calc", "Refresh Parcel Score",class="butt")),br(),br()
                                                       ,br(),
                                                       column(4,style="padding-left: 15px; margin-left:-15px",
                                                              numericInput("f1in2_2022", "1 in 2 Year Flood (2022 Scenario)", width = NULL,value = 0.5,min = 0, max = 1),
@@ -261,7 +263,7 @@ ui = fluidPage(id = 'fP',
                                                              numericInput("f1in100_2052", "1 in 100 Year Flood (2052 Scenario)", width = NULL,value = 0.5,min = 0, max = 1),
                                                              numericInput("f1in500_2052", "1 in 500 Year Flood (2052 Scenario)", width = NULL,value = 0.5,min = 0, max = 1),
                                                              numericInput("fema_nontid_100", "FEMA Non-Tidal 100-Year Floodplain", width = NULL,value = 0.5,min = 0, max = 1)
-                                                             ),
+                                                      ),
                                                       column(4,style="padding-right: 20px; margin-right:-20px",
                                                              numericInput("fema_tid_100", "FEMA Tidal 100-Year Floodplain", width = NULL,value = 0.5,min = 0, max = 1),
                                                              numericInput("hand_1_8", "Height Above Nearest Drainage (<1.8 ft)", width = NULL,value = 0.5,min = 0, max = 1),
@@ -272,20 +274,25 @@ ui = fluidPage(id = 'fP',
                                                              numericInput("parcel_size", "Parcel Size", width = NULL,value = 0.5,min = 0, max = 1),
                                                              numericInput("natlandcover", "Natural Landcover", width = NULL,value = 0.5,min = 0, max = 1)
                                                       ),br(), 
-                                                      column(12, align = "center", h4(strong("Range of Parcel Scores to Display"),style="font-size:20px;font-style:normal; font-weight: 400; color: black"),
+                                                      column(9, align = "center", h4(strong("Range of Parcel Scores to Display"),style="font-size:20px;font-style:normal; font-weight: 400; color: black"),
                                                              sliderInput("maprange", "Range:",
                                                                          min = 0, max = 1,
-                                                                         value = c(0,1)))
+                                                                         value = c(0.75,1))), 
+                                                      column(3,align = "center", h4(strong("Select all in Range"),style="font-size:20px;font-style:normal; font-weight: 400; color: black"),
+                                                             br(),checkboxInput(inputId="selectallinrange", label="", value = FALSE, width = NULL))
                                                ),
                                                column(6,h4(strong("Map of Undeveloped Lots (click to add to summary table)"),style="font-size:26px;font-style:normal; font-weight: 400; color: black"),
                                                       br(),br(),
                                                       tags$style(type = "text/css", "#map {height: calc(100vh - 250px) !important;}"),
+                                                      leafletOutput("map")%>% withSpinner(color="black"), br(),
                                                       selectizeInput(inputId = "selected_locations",
                                                                      label = "Selected Lot(s)",
                                                                      choices = flood_simp$`Tax Account Number`,
                                                                      selected = NULL,
-                                                                     multiple = TRUE),
-                                                      leafletOutput("map")%>% withSpinner(color="black")))
+                                                                     multiple = TRUE,
+                                                                     options = list(placeholder = "Select Tax Account Number",
+                                                                                    maxOptions = 2000))
+                                                      ))
                                              
                                    )
                           ),
